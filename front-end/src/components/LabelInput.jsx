@@ -2,13 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function LabelInput({wall ,dimension}) {
-  console.log(dimension)
+export default function LabelInput({wall ,dimension, setDimension}) {
   return (
-    <div>
+    <>
       <label htmlFor={wall}>{dimension}</label>
-      <input id={wall} name={wall} type='text'/>
-    </div>
+      <input id={wall} name={wall} type='text' onChange={(e) => setDimension(e.target.value)}/>
+    </>
   );
 }
 

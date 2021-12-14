@@ -1,24 +1,31 @@
 /* eslint-disable */
-import React from 'react';
+import React, {useState} from 'react';
 
 import LabelInput from '../components/LabelInput';
 
 export default function MainPage() {
+  const [wallOneHeight, setWallOneHeight] = useState();
+  const [wallOneLength, setWallOneLength] = useState();
+  const [wallTwoHeight, setWallTwoHeight] = useState();
+  const [wallTwoLength, setWallTwoLength] = useState();
+  const [wallThreeHeight, setWallThreeHeight] = useState();
+  const [wallThreeLength, setWallThreeLength] = useState();
+  const [wallFourHeight, setWallFourHeight] = useState();
+  const [wallFourLength, setWallFourLength] = useState();
+
   return (
     <div>
-      <div>
-        <form action='submit' method="PUT">
-          <LabelInput wall='paredeA1' dimension='Altura Parede 1: '/>
-          <LabelInput wall='paredeL1' dimension='Largura parede 1: '/>
-          <LabelInput wall='paredeA2' dimension='Altura Parede: 2'/>
-          <LabelInput wall='paredeL2' dimension='Largura parede: 2'/>
-          <LabelInput wall='paredeA3' dimension='Altura Parede: 3'/>
-          <LabelInput wall='paredeL3' dimension='Largura parede: 3'/>
-          <LabelInput wall='paredeA4' dimension='Altura Parede: 4'/>
-          <LabelInput wall='paredeL4' dimension='Largura parede: 4'/>
-          <button type="submit">Calcular</button>
-        </form>
-      </div>
+      <form action='http://localhost:3001/ping' method="POST">
+        <LabelInput wall='paredeA1' dimension='Altura Parede 1: ' setDimension={setWallOneHeight}/>
+        <LabelInput wall='paredeL1' dimension='Largura parede 1: ' setDimension={setWallOneLength}/>
+        <LabelInput wall='paredeA2' dimension='Altura Parede: 2' setDimension={setWallTwoHeight}/>
+        <LabelInput wall='paredeL2' dimension='Largura parede: 2' setDimension={setWallTwoLength}/>
+        <LabelInput wall='paredeA3' dimension='Altura Parede: 3' setDimension={setWallThreeHeight}/>
+        <LabelInput wall='paredeL3' dimension='Largura parede: 3' setDimension={setWallThreeLength}/>
+        <LabelInput wall='paredeA4' dimension='Altura Parede: 4' setDimension={setWallFourHeight}/>
+        <LabelInput wall='paredeL4' dimension='Largura parede: 4' setDimension={setWallFourLength}/>
+        <button type="submit">Calcular</button>
+      </form>
     </div>
   )
 };

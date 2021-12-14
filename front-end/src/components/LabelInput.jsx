@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function LabelInput(wall) {
+export default function LabelInput({wall ,dimension}) {
+  console.log(dimension)
   return (
     <div>
-      <label htmlFor={wall}>Altura parede 1:</label>
-      <input id={wall} type='text'/>
+      <label htmlFor={wall}>{dimension}</label>
+      <input id={wall} name={wall} type='text'/>
     </div>
   )
 }

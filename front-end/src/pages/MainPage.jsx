@@ -5,16 +5,17 @@ import LabelInput from '../components/LabelInput';
 export default function MainPage() {
   return (
     <>
-        <form action='submit'>
-         <LabelInput wall='alturaParede1'/>
-         <LabelInput wall='larguraParede1'/>
-         <LabelInput wall='alturaParede2'/>
-         <LabelInput wall='larguraParede2'/>
-         <LabelInput wall='alturaParede3'/>
-         <LabelInput wall='larguraParede3'/>
-         <LabelInput wall='alturaParede4'/>
-         <LabelInput wall='larguraParede4'/>
-        </form>
+      <form action='submit' method="PUT">
+        <LabelInput wall='paredeA1' dimension='Altura Parede 1: '/>
+        <LabelInput wall='paredeL1' dimension='Largura parede 1: '/>
+        <LabelInput wall='paredeA2' dimension='Altura Parede: 2'/>
+        <LabelInput wall='paredeL2' dimension='Largura parede: 2'/>
+        <LabelInput wall='paredeA3' dimension='Altura Parede: 3'/>
+        <LabelInput wall='paredeL3' dimension='Largura parede: 3'/>
+        <LabelInput wall='paredeA4' dimension='Altura Parede: 4'/>
+        <LabelInput wall='paredeL4' dimension='Largura parede: 4'/>
+        <button type='submit'>Calcular</button>
+      </form>
     </>
   )
 }

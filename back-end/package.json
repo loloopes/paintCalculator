@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start":"node /home/gustavo/trybe/digitalRepublic/back-end/server/index"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3"
+  }
+}

@@ -2,19 +2,19 @@ import React from 'react';
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import MainPage from './pages/MainPage';
 
-function App() {
+const App = function () {
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<MainPage />}/>
-    </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

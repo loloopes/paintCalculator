@@ -1,5 +1,8 @@
 /* eslint-disable */
 import React, {useState} from 'react';
+import axios from 'axios';
+
+import postData from '../services/postData';
 
 import LabelInput from '../components/LabelInput';
 
@@ -13,9 +16,16 @@ export default function MainPage() {
   const [wallFourHeight, setWallFourHeight] = useState();
   const [wallFourLength, setWallFourLength] = useState();
 
+  let info = {
+    wallOneHeight, wallOneLength,
+    wallTwoHeight, wallTwoLength,
+    wallThreeHeight, wallThreeLength,
+    wallFourHeight, wallFourLength,
+  };
+
   return (
     <div>
-      <form action='http://localhost:3001/ping' method="POST">
+      <form>
         <LabelInput wall='paredeA1' dimension='Altura Parede 1: ' setDimension={setWallOneHeight}/>
         <LabelInput wall='paredeL1' dimension='Largura parede 1: ' setDimension={setWallOneLength}/>
         <LabelInput wall='paredeA2' dimension='Altura Parede: 2' setDimension={setWallTwoHeight}/>
@@ -24,7 +34,7 @@ export default function MainPage() {
         <LabelInput wall='paredeL3' dimension='Largura parede: 3' setDimension={setWallThreeLength}/>
         <LabelInput wall='paredeA4' dimension='Altura Parede: 4' setDimension={setWallFourHeight}/>
         <LabelInput wall='paredeL4' dimension='Largura parede: 4' setDimension={setWallFourLength}/>
-        <button type="submit">Calcular</button>
+        <button type="submit" onClick={() => postData(info)}>Calcular</button>
       </form>
     </div>
   )

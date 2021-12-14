@@ -6,7 +6,7 @@ export default function LabelInput({wall ,dimension, setDimension}) {
   return (
     <>
       <label htmlFor={wall}>{dimension}</label>
-      <input id={wall} name={wall} type='text' onChange={(e) => setDimension(e.target.value)}/>
+      <input id={wall} name={wall} type='text' onChange={({target: {value}}) => setDimension(value)}/>
     </>
   );
 }

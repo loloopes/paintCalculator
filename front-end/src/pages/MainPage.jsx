@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, {useState} from 'react';
-import axios from 'axios';
-
+// import axios from 'axios';
 import postData from '../services/postData';
 
 import LabelInput from '../components/LabelInput';
@@ -15,6 +14,7 @@ export default function MainPage() {
   const [wallThreeLength, setWallThreeLength] = useState();
   const [wallFourHeight, setWallFourHeight] = useState();
   const [wallFourLength, setWallFourLength] = useState();
+  const [area, setArea] = useState(199);
 
   let info = {
     wallOneHeight, wallOneLength,
@@ -34,8 +34,9 @@ export default function MainPage() {
         <LabelInput wall='paredeL3' dimension='Largura parede: 3' setDimension={setWallThreeLength}/>
         <LabelInput wall='paredeA4' dimension='Altura Parede: 4' setDimension={setWallFourHeight}/>
         <LabelInput wall='paredeL4' dimension='Largura parede: 4' setDimension={setWallFourLength}/>
-        <button type="submit" onClick={() => postData(info)}>Calcular</button>
+        <button type="button" onClick={() => postData(info, setArea) /*axios.post('http://localhost:3001/area', info).then((response) => console.log(response))*/}>Calcular</button>
       </form>
+      <p>{area}</p>
     </div>
   )
 };

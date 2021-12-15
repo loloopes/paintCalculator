@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function LabelInput({wall ,dimension, setDimension}) {
+export default function LabelInput({entity ,text, handleChange}) {
   return (
     <>
-      <label htmlFor={wall}>{dimension}</label>
-      <input id={wall} name={wall} type='text' onChange={({target: {value}}) => setDimension(value)}/>
+      <label htmlFor={entity}>{text}</label>
+      <input id={entity} name={entity} type='text' onChange={({target: {value}}) => handleChange(value)}/>
     </>
   );
 }

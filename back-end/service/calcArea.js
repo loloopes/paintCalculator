@@ -13,7 +13,7 @@ const calcArea = (info) => {
     doorsFour, windowsFour,
   } = info;
 
-  const area = (Number(wallOneHeight) * Number(wallOneLength)
+  let area = (Number(wallOneHeight) * Number(wallOneLength)
   + Number(wallTwoHeight) * Number(wallTwoLength)
   + Number(wallThreeHeight) * Number(wallThreeLength)
   + Number(wallFourHeight) * Number(wallFourLength))
@@ -21,8 +21,35 @@ const calcArea = (info) => {
     + Number(doorsTwo) * doorArea + Number(windowsTwo) * windowArea
     + Number(doorsThree) * doorArea + Number(windowsThree) * windowArea
     + Number(doorsFour) * doorArea + Number(windowsFour) * windowArea);
+  // const test = area;
+  let xLarge = null;
+  let large = null;
+  let medium = null;
+  let small = null;
 
-  return area;
+  xLarge = parseInt(area / 18, 10);
+
+  if (xLarge) area -= xLarge * 18;
+
+  large = parseInt(area / 3.6, 10);
+
+  if (large) area -= large * 3.6;
+
+  medium = parseInt(area / 2.5, 10);
+
+  if (medium) area -= medium * 2.5;
+
+  small = area % 0.5 > 0 ? parseInt(area / 0.5, 10) + 1 : area / 0.5;
+
+  const latas = {
+    xLarge,
+    large,
+    medium,
+    small,
+  };
+  // console.log(latas);
+
+  return latas;
 };
 
 module.exports = { calcArea };

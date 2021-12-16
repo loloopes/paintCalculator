@@ -1,4 +1,6 @@
-const calcCans = (info) => {
+const Joi = require('joi');
+
+module.exports = async (req, _res, next) => {
   const doorArea = 1.52;
   const windowArea = 2.4;
 
@@ -11,7 +13,7 @@ const calcCans = (info) => {
     doorsThree, windowsThree,
     wallFourHeight, wallFourLength,
     doorsFour, windowsFour,
-  } = info;
+  } = req.body;
 
   const wallOne = Number(wallOneHeight) * Number(wallOneLength)
   - (Number(doorsOne) * doorArea + Number(windowsOne) * windowArea);
@@ -25,35 +27,21 @@ const calcCans = (info) => {
   const wallFour = Number(wallFourHeight) * Number(wallFourLength)
   - (Number(doorsFour) * doorArea + Number(windowsFour) * windowArea);
 
-  let area = wallOne + wallTwo + wallThree + wallFour;
-
-  let xLarge = null;
-  let large = null;
-  let medium = null;
-  let small = null;
-
-  xLarge = parseInt(area / (18 * 5), 10);
-
-  if (xLarge) area -= xLarge * (18 * 5);
-
-  large = parseInt(area / (3.6 * 5), 10);
-
-  if (large) area -= large * (3.6 * 5);
-
-  medium = parseInt(area / (2.5 * 5), 10);
-
-  if (medium) area -= medium * (2.5 * 5);
-
-  small = area % 0.5 > 0 ? parseInt(area / (0.5 * 5), 10) + 1 : area / (0.5 * 5);
-
-  const cans = {
-    xLarge,
-    large,
-    medium,
-    small,
+  const walls = {
+    wallOne,
+    wallTwo,
+    wallThree,
+    wallFour,
   };
 
-  return cans;
-};
+  const { error } = Joi.object({
+    wallOne: Joi.number().min(1).max(15),
+    wallTwo: Joi.number().min(1).max(15),
+    wallThree: Joi.number().min(1).max(15),
+    wallFour: Joi.number().min(1).max(15),
+  }).validate(walls);
 
-module.exports = { calcCans };
+  if (error) return next(error);
+
+  next();
+}

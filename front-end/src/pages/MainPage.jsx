@@ -67,8 +67,9 @@ export default function MainPage() {
         <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
         <button type="button" onClick={() => postData(info, setCans)}>Calcular</button>
       </form>
-      {/* <p>{console.log(Object.entries(cans))}</p> */}
-      {Object.entries(cans).map(([size, quantity]) => <p>{`${size}: ${quantity}`}</p>)}
+      <section>
+        {Object.entries(cans).map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
+      </section>
     </div>
   )
 };

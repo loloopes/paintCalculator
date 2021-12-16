@@ -82,9 +82,9 @@ export default function MainPage() {
             <LabelInput entity='portasP4' text='Portas parede 4: ' handleChange={setDoorsFour}/>
             <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
           </div>
-        </div>
+        </div>   
+        <button type="button" onClick={() => postData(info, setCans, setError)}>Calcular</button>
       </form>
-          <button type="button" onClick={() => postData(info, setCans, setError)}>Calcular</button>parede 3: ' handleChange={setWindowsThree}/>
       <section>
         {Object.entries(cans).map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
         <p>{error}</p>

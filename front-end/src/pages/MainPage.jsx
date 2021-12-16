@@ -25,7 +25,12 @@ export default function MainPage() {
   const [doorsFour, setDoorsFour] = useState(0);
   const [windowsFour, setWindowsFour] = useState(0);
 
-  const [area, setArea] = useState(0);
+  const [cans, setCans] = useState({
+    xLarge: 0,
+    large: 0,
+    medium: 0,
+    small: 0,
+  });
 
   let info = {
     wallOneHeight, wallOneLength,
@@ -60,9 +65,10 @@ export default function MainPage() {
         <LabelInput entity='paredeL4' text='Largura parede: 4' handleChange={setWallFourLength}/>
         <LabelInput entity='portasP4' text='Portas parede 4: ' handleChange={setDoorsFour}/>
         <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
-        <button type="button" onClick={() => postData(info, setArea)}>Calcular</button>
+        <button type="button" onClick={() => postData(info, setCans)}>Calcular</button>
       </form>
-      <p>{area}</p>
+      {/* <p>{console.log(Object.entries(cans))}</p> */}
+      {Object.entries(cans).map(([size, quantity]) => <p>{`${size}: ${quantity}`}</p>)}
     </div>
   )
 };

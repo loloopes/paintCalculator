@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-module.exports = async (req, _res, next) => {
+module.exports = async (req, res, next) => {
   const doorArea = 1.52;
   const windowArea = 2.4;
 
@@ -15,10 +15,10 @@ module.exports = async (req, _res, next) => {
     doorsFour, windowsFour,
   } = req.body;
 
-  const wallOne = Number(wallOneHeight) * Number(wallOneLength)
-  const wallTwo = Number(wallTwoHeight) * Number(wallTwoLength)
-  const wallThree = Number(wallThreeHeight) * Number(wallThreeLength)
-  const wallFour = Number(wallFourHeight) * Number(wallFourLength)
+  const wallOne = Number(wallOneHeight) * Number(wallOneLength);
+  const wallTwo = Number(wallTwoHeight) * Number(wallTwoLength);
+  const wallThree = Number(wallThreeHeight) * Number(wallThreeLength);
+  const wallFour = Number(wallFourHeight) * Number(wallFourLength);
 
   const areaDoorsWindowsOne = Number(doorsOne) * doorArea + Number(windowsOne) * windowArea;
   const areaDoorsWindowsTwo = Number(doorsTwo) * doorArea + Number(windowsTwo) * windowArea;
@@ -58,7 +58,7 @@ module.exports = async (req, _res, next) => {
   if (validateDoorsWindows.error) return next(validateDoorsWindows.error);
 
   if (doorsOne > 0) {
-    const mySchema = Joi.number().min(2.2).required();
+    const mySchema = Joi.number().min(2.2).required().label('wallOneHeight');
     const { error } = mySchema.validate(wallOneHeight);
 
     if (error) return next(error);
@@ -66,21 +66,21 @@ module.exports = async (req, _res, next) => {
 
   if (doorsTwo > 0) {
     const mySchema = Joi.number().min(2.2).required();
-    const { error } = mySchema.validate(wallOneHeight);
+    const { error } = mySchema.validate(wallTwoHeight);
 
     if (error) return next(error);
   }
 
   if (doorsThree > 0) {
     const mySchema = Joi.number().min(2.2).required();
-    const { error } = mySchema.validate(wallOneHeight);
+    const { error } = mySchema.validate(wallThreeHeight);
 
     if (error) return next(error);
   }
 
   if (doorsFour > 0) {
     const mySchema = Joi.number().min(2.2).required();
-    const { error } = mySchema.validate(wallOneHeight);
+    const { error } = mySchema.validate(wallFourHeight);
 
     if (error) return next(error);
   }

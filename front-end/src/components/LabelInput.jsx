@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 export default function LabelInput({entity ,text, handleChange}) {
   return (
-    <>
-      <label htmlFor={entity}>{text}</label>
-      <input id={entity} name={entity} type='number' onChange={({target: {value}}) => handleChange(value)}/>
-    </>
+    <div className='input-group mb-2'>
+      <span className='input-group-text'>{text}</span>
+      <input id={entity} name={entity} type='number' className='form-control' onChange={({target: {value}}) => handleChange(value)}/>
+    </div>
   );
 }
 

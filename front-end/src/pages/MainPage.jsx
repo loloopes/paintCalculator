@@ -1,8 +1,9 @@
 /* eslint-disable */
 import React, {useState} from 'react';
-
+import './MainPage.css';
 import postData from '../services/postData';
 import LabelInput from '../components/LabelInput';
+
 
 export default function MainPage() {
   const [wallOneHeight, setWallOneHeight] = useState();
@@ -46,27 +47,44 @@ export default function MainPage() {
   return (
     <div>
       <form>
-        <LabelInput entity='paredeA1' text='Altura Parede 1: ' handleChange={setWallOneHeight}/>
-        <LabelInput entity='paredeL1' text='Largura parede 1: ' handleChange={setWallOneLength}/>
-        <LabelInput entity='portasP1' text='Portas parede 1: ' handleChange={setDoorsOne}/>
-        <LabelInput entity='janelasP1' text='Janelas parede 1: ' handleChange={setWindowsOne}/>
-
-        <LabelInput entity='paredeA2' text='Altura Parede: 2' handleChange={setWallTwoHeight}/>
-        <LabelInput entity='paredeL2' text='Largura parede: 2' handleChange={setWallTwoLength}/>
-        <LabelInput entity='portasP2' text='Portas parede 2: ' handleChange={setDoorsTwo}/>
-        <LabelInput entity='janelasP2' text='Janelas parede 2: ' handleChange={setWindowsTwo}/>
-
-        <LabelInput entity='paredeA3' text='Altura Parede: 3' handleChange={setWallThreeHeight}/>
-        <LabelInput entity='paredeL3' text='Largura parede: 3' handleChange={setWallThreeLength}/>
-        <LabelInput entity='portasP3' text='Portas parede 3: ' handleChange={setDoorsThree}/>
-        <LabelInput entity='janelasP3' text='Janelas parede 3: ' handleChange={setWindowsThree}/>
-
-        <LabelInput entity='paredeA4' text='Altura Parede: 4' handleChange={setWallFourHeight}/>
-        <LabelInput entity='paredeL4' text='Largura parede: 4' handleChange={setWallFourLength}/>
-        <LabelInput entity='portasP4' text='Portas parede 4: ' handleChange={setDoorsFour}/>
-        <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
-        <button type="button" onClick={() => postData(info, setCans, setError)}>Calcular</button>
+        <div className='card'>
+          <div className='card-body'>
+            <h5 className='card-title'>Info parede 1</h5>
+            <LabelInput entity='paredeA1' text='Altura Parede 1: ' handleChange={setWallOneHeight}/>
+            <LabelInput entity='paredeL1' text='Largura parede 1: ' handleChange={setWallOneLength}/>
+            <LabelInput entity='portasP1' text='Portas parede 1: ' handleChange={setDoorsOne}/>
+            <LabelInput entity='janelasP1' text='Janelas parede 1: ' handleChange={setWindowsOne}/>
+          </div>
+        </div>
+        <div className='card'>
+          <div className='card-body'>
+            <h5 className='card-title'>Info parede 2</h5>
+            <LabelInput entity='paredeA2' text='Altura Parede: 2' handleChange={setWallTwoHeight}/>
+            <LabelInput entity='paredeL2' text='Largura parede: 2' handleChange={setWallTwoLength}/>
+            <LabelInput entity='portasP2' text='Portas parede 2: ' handleChange={setDoorsTwo}/>
+            <LabelInput entity='janelasP2' text='Janelas parede 2: ' handleChange={setWindowsTwo}/>
+          </div>
+        </div>
+        <div className='card'>
+          <div className='card-body'>
+            <h5 className='card-title'>Info parede 2</h5>
+            <LabelInput entity='paredeA3' text='Altura Parede: 3' handleChange={setWallThreeHeight}/>
+            <LabelInput entity='paredeL3' text='Largura parede: 3' handleChange={setWallThreeLength}/>
+            <LabelInput entity='portasP3' text='Portas parede 3: ' handleChange={setDoorsThree}/>
+            <LabelInput entity='janelasP3' text='Janelas parede 3: ' handleChange={setWindowsThree}/>
+          </div>
+        </div>
+        <div className='card'>
+          <div className='card-body'>
+            <h5 className='card-title'>Info parede 2</h5>
+            <LabelInput entity='paredeA4' text='Altura Parede: 4' handleChange={setWallFourHeight}/>
+            <LabelInput entity='paredeL4' text='Largura parede: 4' handleChange={setWallFourLength}/>
+            <LabelInput entity='portasP4' text='Portas parede 4: ' handleChange={setDoorsFour}/>
+            <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
+          </div>
+        </div>
       </form>
+          <button type="button" onClick={() => postData(info, setCans, setError)}>Calcular</button>parede 3: ' handleChange={setWindowsThree}/>
       <section>
         {Object.entries(cans).map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
         <p>{error}</p>

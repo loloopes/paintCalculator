@@ -1,4 +1,4 @@
-const { calcArea } = require('../../service/calcArea');
+const { calcCans } = require('../../service/calcCans');
 
 // eslint-disable-next-line consistent-return
 module.exports = async (req, res, next) => {
@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
       windowsFour,
     };
 
-    return res.status(200).json({ total: calcArea(dimensions) });
+    return res.status(200).json({ total: calcCans(dimensions) });
   } catch (err) {
     next(err);
   }

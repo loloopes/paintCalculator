@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start":"node /home/gustavo/trybe/digitalRepublic/back-end/server/index"
+    "start": "node /home/gustavo/trybe/digitalRepublic/back-end/server/index"
   },
   "dependencies": {
     "cors": "^2.8.5",

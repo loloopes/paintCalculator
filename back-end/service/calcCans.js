@@ -1,4 +1,4 @@
-const calcArea = (info) => {
+const calcCans = (info) => {
   const doorArea = 1.52;
   const windowArea = 2.4;
 
@@ -21,7 +21,7 @@ const calcArea = (info) => {
     + Number(doorsTwo) * doorArea + Number(windowsTwo) * windowArea
     + Number(doorsThree) * doorArea + Number(windowsThree) * windowArea
     + Number(doorsFour) * doorArea + Number(windowsFour) * windowArea);
-  // const test = area;
+
   let xLarge = null;
   let large = null;
   let medium = null;
@@ -41,15 +41,20 @@ const calcArea = (info) => {
 
   small = area % 0.5 > 0 ? parseInt(area / 0.5, 10) + 1 : area / 0.5;
 
-  const latas = {
-    xLarge,
-    large,
-    medium,
-    small,
+  const cans = small === 5 ? {
+    xLarge, large, medium: 1, small: 0,
+  } : {
+    xLarge, large, medium, small,
   };
-  // console.log(latas);
 
-  return latas;
+  // const cans = {
+  //   xLarge,
+  //   large,
+  //   medium,
+  //   small,
+  // };
+
+  return cans;
 };
 
-module.exports = { calcArea };
+module.exports = { calcCans };

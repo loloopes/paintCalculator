@@ -16,16 +16,14 @@ module.exports = async (req, _res, next) => {
   } = req.body;
 
   const wallOne = Number(wallOneHeight) * Number(wallOneLength)
-  - (Number(doorsOne) * doorArea + Number(windowsOne) * windowArea);
-
   const wallTwo = Number(wallTwoHeight) * Number(wallTwoLength)
-  - (Number(doorsTwo) * doorArea + Number(windowsTwo) * windowArea);
-
   const wallThree = Number(wallThreeHeight) * Number(wallThreeLength)
-  - (Number(doorsThree) * doorArea + Number(windowsThree) * windowArea);
-
   const wallFour = Number(wallFourHeight) * Number(wallFourLength)
-  - (Number(doorsFour) * doorArea + Number(windowsFour) * windowArea);
+
+  const areaDoorsWindowsOne = Number(doorsOne) * doorArea + Number(windowsOne) * windowArea;
+  const areaDoorsWindowsTwo = Number(doorsTwo) * doorArea + Number(windowsTwo) * windowArea;
+  const areaDoorsWindowsThree = Number(doorsThree) * doorArea + Number(windowsThree) * windowArea;
+  const areaDoorsWindowsFour = Number(doorsFour) * doorArea + Number(windowsFour) * windowArea;
 
   const walls = {
     wallOne,
@@ -34,14 +32,58 @@ module.exports = async (req, _res, next) => {
     wallFour,
   };
 
-  const { error } = Joi.object({
-    wallOne: Joi.number().min(1).max(15),
-    wallTwo: Joi.number().min(1).max(15),
-    wallThree: Joi.number().min(1).max(15),
-    wallFour: Joi.number().min(1).max(15),
+  const doorsWindows = {
+    areaDoorsWindowsOne,
+    areaDoorsWindowsTwo,
+    areaDoorsWindowsThree,
+    areaDoorsWindowsFour,
+  };
+
+  const validateWall = Joi.object({
+    wallOne: Joi.number().min(1).max(15).required(),
+    wallTwo: Joi.number().min(1).max(15).required(),
+    wallThree: Joi.number().min(1).max(15).required(),
+    wallFour: Joi.number().min(1).max(15).required(),
   }).validate(walls);
 
-  if (error) return next(error);
+  if (validateWall.error) return next(validateWall.error);
+
+  const validateDoorsWindows = Joi.object({
+    areaDoorsWindowsOne: Joi.number().max(wallOne * 0.5).required(),
+    areaDoorsWindowsTwo: Joi.number().max(wallTwo * 0.5).required(),
+    areaDoorsWindowsThree: Joi.number().max(wallThree * 0.5).required(),
+    areaDoorsWindowsFour: Joi.number().max(wallFour * 0.5).required(),
+  }).validate(doorsWindows);
+
+  if (validateDoorsWindows.error) return next(validateDoorsWindows.error);
+
+  if (doorsOne > 0) {
+    const mySchema = Joi.number().min(2.2).required();
+    const { error } = mySchema.validate(wallOneHeight);
+
+    if (error) return next(error);
+  }
+
+  if (doorsTwo > 0) {
+    const mySchema = Joi.number().min(2.2).required();
+    const { error } = mySchema.validate(wallOneHeight);
+
+    if (error) return next(error);
+  }
+
+  if (doorsThree > 0) {
+    const mySchema = Joi.number().min(2.2).required();
+    const { error } = mySchema.validate(wallOneHeight);
+
+    if (error) return next(error);
+  }
+
+  if (doorsFour > 0) {
+    const mySchema = Joi.number().min(2.2).required();
+    const { error } = mySchema.validate(wallOneHeight);
+
+    if (error) return next(error);
+  }
 
   next();
-}
+};

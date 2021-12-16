@@ -65,21 +65,21 @@ module.exports = async (req, res, next) => {
   }
 
   if (doorsTwo > 0) {
-    const mySchema = Joi.number().min(2.2).required();
+    const mySchema = Joi.number().min(2.2).required().label('wallTwoHeight');
     const { error } = mySchema.validate(wallTwoHeight);
 
     if (error) return next(error);
   }
 
   if (doorsThree > 0) {
-    const mySchema = Joi.number().min(2.2).required();
+    const mySchema = Joi.number().min(2.2).required().label('wallThreeHeight');
     const { error } = mySchema.validate(wallThreeHeight);
 
     if (error) return next(error);
   }
 
   if (doorsFour > 0) {
-    const mySchema = Joi.number().min(2.2).required();
+    const mySchema = Joi.number().min(2.2).required().label('wallFourHeight');
     const { error } = mySchema.validate(wallFourHeight);
 
     if (error) return next(error);

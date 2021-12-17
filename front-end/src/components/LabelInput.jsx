@@ -30,11 +30,11 @@ export default function LabelInput({entity ,text, handleChange}) {
               </button>
             </div>
             <div className="modal-body">
-              ...
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <ol>
+                <li>Nenhuma parede pode ter menos de 1 metro quadrado nem mais de 15 metros quadrados, mas podem possuir alturas e larguras diferentes</li>
+                <li>O total de área das portas e janelas deve ser no máximo 50% da área de parede</li>
+                <li>A altura de paredes com porta deve ser, no mínimo, 30 centímetros maior que a altura da porta</li>
+              </ol>
             </div>
           </div>
         </div>

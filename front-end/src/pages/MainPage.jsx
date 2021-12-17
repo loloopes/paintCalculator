@@ -46,7 +46,7 @@ export default function MainPage() {
 
   return (
     <div>
-      <form>
+      <form className='form'>
         <div className='card'>
           <div className='card-body'>
             <h5 className='card-title'>Info parede 1</h5>

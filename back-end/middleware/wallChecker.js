@@ -40,10 +40,14 @@ module.exports = async (req, res, next) => {
   };
 
   const validateWall = Joi.object({
-    wallOne: Joi.number().min(1).max(15).required(),
-    wallTwo: Joi.number().min(1).max(15).required(),
-    wallThree: Joi.number().min(1).max(15).required(),
-    wallFour: Joi.number().min(1).max(15).required(),
+    wallOne: Joi.number().min(1).max(15).required()
+      .label('Area parede 1'),
+    wallTwo: Joi.number().min(1).max(15).required()
+      .label('Area parede 2'),
+    wallThree: Joi.number().min(1).max(15).required()
+      .label('Area parede 3'),
+    wallFour: Joi.number().min(1).max(15).required()
+      .label('Area parede 4'),
   }).validate(walls);
 
   if (validateWall.error) return next(validateWall.error);

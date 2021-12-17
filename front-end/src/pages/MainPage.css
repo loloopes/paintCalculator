@@ -1,15 +1,18 @@
-@media only screen and (max-width: 450px) {
-  .card-body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .calculate {
-    width: 10em;;
-  }
-
-  .result {
-    align-items: center;
-  }
+.calculate{
+  width: 10em;
 }
 
+.result {
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 1025px) {
+  .form {
+    flex-flow: wrap;
+  }
+}

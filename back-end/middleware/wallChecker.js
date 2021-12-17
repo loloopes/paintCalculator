@@ -53,10 +53,14 @@ module.exports = async (req, res, next) => {
   if (validateWall.error) return next(validateWall.error);
 
   const validateDoorsWindows = Joi.object({
-    areaDoorsWindowsOne: Joi.number().max(wallOne * 0.5).required(),
-    areaDoorsWindowsTwo: Joi.number().max(wallTwo * 0.5).required(),
-    areaDoorsWindowsThree: Joi.number().max(wallThree * 0.5).required(),
-    areaDoorsWindowsFour: Joi.number().max(wallFour * 0.5).required(),
+    areaDoorsWindowsOne: Joi.number().max(wallOne * 0.5).required()
+      .label('Area de portas1 e janelas1'),
+    areaDoorsWindowsTwo: Joi.number().max(wallTwo * 0.5).required()
+      .label('Area de portas2 e janelas2'),
+    areaDoorsWindowsThree: Joi.number().max(wallThree * 0.5).required()
+      .label('Area de portas3 e janelas3'),
+    areaDoorsWindowsFour: Joi.number().max(wallFour * 0.5).required()
+      .label('Area de portas4 e janelas4'),
   }).validate(doorsWindows);
 
   if (validateDoorsWindows.error) return next(validateDoorsWindows.error);

@@ -1,12 +1,45 @@
 /* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
+import question from '../images/question-circle.svg'
 
 export default function LabelInput({entity ,text, handleChange}) {
   return (
     <div className='input-group mb-2'>
-      <span className='input-group-text'>{text}</span>
-      <input id={entity} name={entity} type='number' className='form-control' onChange={({target: {value}}) => handleChange(value)}/>
+      <input id={entity} name={entity} placeholder={text} type='number' className='form-control' onChange={({target: {value}}) => handleChange(value)}/>
+      <button type='button' data-toggle='modal' data-target='#exampleModal' className='input-group-text' title='Maiores informacoes'><img src={question}/></button>
+      
+      <div className='modal' id='mymodal'>
+        <div className='modal-dialog'>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <h1>test</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+{/* <!-- Modal --> */}
+      <div className="modal fade" id="exampleModal" tabIndex='1' role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Detalhes</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              ...
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Modal */}
     </div>
   );
 }

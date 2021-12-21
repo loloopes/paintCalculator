@@ -89,10 +89,10 @@ export default function MainPage() {
           <Modal />
           <div className="card-body">
             <h5 className="card-title">Info parede</h5>
-            <LabelInput entity="paredeA1" text="Altura Parede 1" handleChange={setWallHeight} />
-            <LabelInput entity="paredeL1" text="Largura parede 1" handleChange={setWallLength} />
-            <LabelInput entity="portasP1" text="Portas parede 1" handleChange={setDoors} />
-            <LabelInput entity="janelasP1" text="Janelas parede 1" handleChange={setWindows} />
+            <LabelInput entity="Altura parede" text="Altura Parede 1" handleChange={setWallHeight} />
+            <LabelInput entity="Largura parede" text="Largura parede 1" handleChange={setWallLength} />
+            <LabelInput entity="Portas" text="Portas parede 1" handleChange={setDoors} />
+            <LabelInput entity="Janelas" text="Janelas parede 1" handleChange={setWindows} />
           </div>
           <section className="btns">
             <button
@@ -109,12 +109,6 @@ export default function MainPage() {
         </div>
       </form>
       <section>
-        {/* <div className="card result">
-          <h5 className="card-title">Total latas</h5>
-          {Object.entries(cans)
-            .map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
-          <p>{error}</p>
-        </div> */}
         {console.log('log cans error', cans, error)}
       </section>
     </div>

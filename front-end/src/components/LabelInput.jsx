@@ -7,7 +7,7 @@ export default function LabelInput({ entity, text, handleChange }) {
   return (
     <div className="input-group mb-2">
       <input id={entity} name={entity} placeholder={text} type="number" className="form-control" onChange={({ target: { value } }) => handleChange(value)} />
-      <button type="button" data-toggle="modal" data-target="#modal" className="input-group-text" title="Maiores informacoes"><img src={question} alt="questionMarkBtn" /></button>
+      <button type="button" data-toggle="modal" data-target="#modal" className="input-group-text" title={entity}><img src={question} alt="questionMarkBtn" /></button>
     </div>
   );
 }

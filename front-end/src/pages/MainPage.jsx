@@ -21,12 +21,12 @@ export default function MainPage() {
   });
   const [error, setError] = useState('');
 
-  const info = {
-    wallHeight,
-    wallLength,
-    doors,
-    windows,
-  };
+  // const info = {
+  //   wallHeight,
+  //   wallLength,
+  //   doors,
+  //   windows,
+  // };
 
   return (
     <div>
@@ -110,16 +110,18 @@ export default function MainPage() {
             >
               Adicionar
             </button>
-            <button type="button" className="btn btn-primary calculate" onClick={() => postData(info, setCans, setError)}>Calcular</button>
+            <button type="button" className="btn btn-primary calculate" onClick={() => postData(walls, setCans, setError)}>Calcular</button>
           </section>
         </div>
       </form>
       <section>
-        <div className="card result">
+        {/* <div className="card result">
           <h5 className="card-title">Total latas</h5>
-          {Object.entries(cans).map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
+          {Object.entries(cans)
+            .map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
           <p>{error}</p>
-        </div>
+        </div> */}
+        {console.log('log cans error', cans, error)}
       </section>
     </div>
   );

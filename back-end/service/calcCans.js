@@ -1,35 +1,11 @@
-const calcArea = require('./calcArea');
+/* eslint-disable max-len */
+// const calcArea = require('./calcArea');
 
-const calcCans = ({
-  wallOneHeight, wallOneLength,
-  doorsOne, windowsOne,
-  wallTwoHeight, wallTwoLength,
-  doorsTwo, windowsTwo,
-  wallThreeHeight, wallThreeLength,
-  doorsThree, windowsThree,
-  wallFourHeight, wallFourLength,
-  doorsFour, windowsFour,
-}) => {
-  const wallOne = calcArea({
-    wallHeight: wallOneHeight, wallLength: wallOneLength, doors: doorsOne, windows: windowsOne,
-  });
+const calcCans = (data) => {
+  const doorArea = 2 * 1.2;
+  const windowArea = 0.8 * 1.9;
 
-  const wallTwo = calcArea({
-    wallHeight: wallTwoHeight, wallLength: wallTwoLength, doors: doorsTwo, windows: windowsTwo,
-  });
-
-  const wallThree = calcArea({
-    wallHeight: wallThreeHeight,
-    wallLength: wallThreeLength,
-    doors: doorsThree,
-    windows: windowsThree,
-  });
-
-  const wallFour = calcArea({
-    wallHeight: wallFourHeight, wallLength: wallFourLength, doors: doorsFour, windows: windowsFour,
-  });
-
-  let area = wallOne + wallTwo + wallThree + wallFour;
+  let area = data.reduce((acc, cV) => acc + (cV.wallHeight * cV.wallLength - doorArea * cV.doors - windowArea * cV.windows), 0);
 
   const xLarge = parseInt(area / (18 * 5), 10);
   if (xLarge) area -= xLarge * (18 * 5);

@@ -21,13 +21,6 @@ export default function MainPage() {
   });
   const [error, setError] = useState('');
 
-  // const info = {
-  //   wallHeight,
-  //   wallLength,
-  //   doors,
-  //   windows,
-  // };
-
   return (
     <div>
       <div className="wallsCansTables">
@@ -76,10 +69,11 @@ export default function MainPage() {
             </thead>
             <tbody>
               <tr>
-                <td>Ipsum</td>
+                {/* <td>Ipsum</td>
                 <td>Dolis</td>
                 <td>xuxa</td>
-                <td>maradona</td>
+                <td>maradona</td> */}
+                {Object.values(cans).map((value) => <td>{value}</td>)}
               </tr>
 
             </tbody>

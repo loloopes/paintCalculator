@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import './MainPage.css';
 import postData from '../services/postData';
 import LabelInput from '../components/LabelInput';
+import Modal from '../components/Modal';
 
 
 export default function MainPage() {
@@ -25,6 +26,8 @@ export default function MainPage() {
   const [wallFourLength, setWallFourLength] = useState();
   const [doorsFour, setDoorsFour] = useState(0);
   const [windowsFour, setWindowsFour] = useState(0);
+
+  const [walls, setWalls] = useState([])
   const [cans, setCans] = useState({
     xLarge: 0,
     large: 0,
@@ -48,6 +51,7 @@ export default function MainPage() {
     <div>
       <form className='form'>
         <div className='card'>
+          <Modal/>
           <div className='card-body'>
             <h5 className='card-title'>Info parede 1</h5>
             <LabelInput entity='paredeA1' text='Altura Parede 1' handleChange={setWallOneHeight}/>
@@ -55,8 +59,9 @@ export default function MainPage() {
             <LabelInput entity='portasP1' text='Portas parede 1' handleChange={setDoorsOne}/>
             <LabelInput entity='janelasP1' text='Janelas parede 1' handleChange={setWindowsOne}/>
           </div>
+          <button type="button" className='btn btn-primary calculate' onClick={() => console.log('click')}>Adicionar</button>
         </div>
-        <div className='card'>
+        {/* <div className='card'>
           <div className='card-body'>
             <h5 className='card-title'>Info parede 2</h5>
             <LabelInput entity='paredeA2' text='Altura Parede 2' handleChange={setWallTwoHeight}/>
@@ -82,7 +87,7 @@ export default function MainPage() {
             <LabelInput entity='portasP4' text='Portas parede 4: ' handleChange={setDoorsFour}/>
             <LabelInput entity='janelasP4' text='Janelas parede 4: ' handleChange={setWindowsFour}/>
           </div>
-        </div>   
+        </div>    */}
       </form>
       <section>
         <div className='card result'>

@@ -30,36 +30,65 @@ export default function MainPage() {
 
   return (
     <div>
-      {/* Table walls starts */}
-      <section>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">wallHeight</th>
-              <th scope="col">wallLength</th>
-              <th scope="col">doors</th>
-              <th scope="col">windows</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              walls.map((wall, index) => (
-                <tr>
-                  <th scope="row">{index + 1}</th>
-                  <td>{wall.wallHeight}</td>
-                  <td>{wall.wallLength}</td>
-                  <td>{wall.doors}</td>
-                  <td>{wall.windows}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div className="wallsCansTables">
 
-      </section>
+        {/* Table walls starts */}
+        <section>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">wallHeight</th>
+                <th scope="col">wallLength</th>
+                <th scope="col">doors</th>
+                <th scope="col">windows</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                walls.map((wall, index) => (
+                  <tr>
+                    <th scope="row">{index + 1}</th>
+                    <td>{wall.wallHeight}</td>
+                    <td>{wall.wallLength}</td>
+                    <td>{wall.doors}</td>
+                    <td>{wall.windows}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
 
-      {/* Table ends */}
+        </section>
+
+        {/* Table ends */}
+
+        {/* Table results starts */}
+        <section>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Latas de 18</th>
+                <th scope="col">Latas de 3.6</th>
+                <th scope="col">Latas de 2.5</th>
+                <th scope="col">Latas de 0.5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ipsum</td>
+                <td>Dolis</td>
+                <td>xuxa</td>
+                <td>maradona</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </section>
+
+        {/* Table ends */}
+      </div>
 
       <form className="form">
         <div className="card">
@@ -71,15 +100,18 @@ export default function MainPage() {
             <LabelInput entity="portasP1" text="Portas parede 1" handleChange={setDoors} />
             <LabelInput entity="janelasP1" text="Janelas parede 1" handleChange={setWindows} />
           </div>
-          <button
-            type="button"
-            className="btn btn-primary calculate"
-            onClick={() => setWalls([...walls, {
-              wallHeight, wallLength, doors, windows,
-            }])}
-          >
-            Adicionar
-          </button>
+          <section className="btns">
+            <button
+              type="button"
+              className="btn btn-primary calculate"
+              onClick={() => setWalls([...walls, {
+                wallHeight, wallLength, doors, windows,
+              }])}
+            >
+              Adicionar
+            </button>
+            <button type="button" className="btn btn-primary calculate" onClick={() => postData(info, setCans, setError)}>Calcular</button>
+          </section>
         </div>
       </form>
       <section>
@@ -87,7 +119,6 @@ export default function MainPage() {
           <h5 className="card-title">Total latas</h5>
           {Object.entries(cans).map(([size, quantity], index) => <p key={index}>{`${size}: ${quantity}`}</p>)}
           <p>{error}</p>
-          <button type="button" className="btn btn-primary calculate" onClick={() => postData(info, setCans, setError)}>Calcular</button>
         </div>
       </section>
     </div>

@@ -1,10 +1,20 @@
-.calculate{
+
+.calculate {
   width: 10em;
   align-self: center;
 }
 
+.table {
+  text-align: center;
+}
+
 .result {
   align-items: center;
+}
+
+.btns {
+  display: flex;
+  place-content: space-around;
 }
 
 .form {
@@ -12,10 +22,8 @@
   justify-content: space-evenly;
 }
 
-.form-numero-paredes { }
-
-@media only screen and (max-width: 1025px) {
-  .form {
-    flex-flow: wrap;
-  }
+.wallsCansTables {
+  display: flex;
+  place-content: space-evenly;
+  flex-flow: wrap;
 }

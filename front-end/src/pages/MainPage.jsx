@@ -5,7 +5,8 @@ import './MainPage.css';
 import postData from '../services/postData';
 import LabelInput from '../components/LabelInput';
 import Modal from '../components/Modal';
-import ResultTable from '../components/WallsTable';
+import WallsTable from '../components/WallsTable';
+import ResultTable from '../components/ResultsTable';
 
 export default function MainPage() {
   const [wallHeight, setWallHeight] = useState();
@@ -25,10 +26,10 @@ export default function MainPage() {
   return (
     <div>
       <div className="wallsCansTables">
-        <ResultTable walls={walls} />
+        <WallsTable walls={walls} />
 
         {/* Table results starts */}
-        <section>
+        {/* <section>
           <table className="table">
             <thead>
               <tr>
@@ -40,18 +41,13 @@ export default function MainPage() {
             </thead>
             <tbody>
               <tr>
-                {/* <td>Ipsum</td>
-                <td>Dolis</td>
-                <td>xuxa</td>
-                <td>maradona</td> */}
                 {Object.values(cans).map((value) => <td>{value}</td>)}
               </tr>
 
             </tbody>
           </table>
-
-        </section>
-
+        </section> */}
+        <ResultTable cans={cans} />
         {/* Table ends */}
       </div>
 

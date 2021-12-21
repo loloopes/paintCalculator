@@ -5,6 +5,7 @@ import './MainPage.css';
 import postData from '../services/postData';
 import LabelInput from '../components/LabelInput';
 import Modal from '../components/Modal';
+import ResultTable from '../components/WallsTable';
 
 export default function MainPage() {
   const [wallHeight, setWallHeight] = useState();
@@ -24,37 +25,7 @@ export default function MainPage() {
   return (
     <div>
       <div className="wallsCansTables">
-
-        {/* Table walls starts */}
-        <section>
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">wallHeight</th>
-                <th scope="col">wallLength</th>
-                <th scope="col">doors</th>
-                <th scope="col">windows</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                walls.map((wall, index) => (
-                  <tr>
-                    <th scope="row">{index + 1}</th>
-                    <td>{wall.wallHeight}</td>
-                    <td>{wall.wallLength}</td>
-                    <td>{wall.doors}</td>
-                    <td>{wall.windows}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-
-        </section>
-
-        {/* Table ends */}
+        <ResultTable walls={walls} />
 
         {/* Table results starts */}
         <section>
@@ -109,7 +80,7 @@ export default function MainPage() {
         </div>
       </form>
       <section>
-        {console.log('log cans error', cans, error)}
+        {console.log('log cans error', error)}
       </section>
     </div>
   );

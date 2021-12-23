@@ -52,6 +52,21 @@ export default function MainPage() {
             </button>
             <button type="button" className="btn btn-primary calculate" onClick={() => postData(walls, setCans, setError)}>Calcular</button>
           </section>
+          <button
+            type="button"
+            className="btn btn-warning calculate toggle"
+            onClick={() => {
+              setCans({
+                xLarge: 0,
+                large: 0,
+                medium: 0,
+                small: 0,
+              }); setError(''); setWalls([]);
+            }}
+          >
+            Reset
+
+          </button>
         </div>
       </form>
       <section>

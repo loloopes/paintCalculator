@@ -55,7 +55,7 @@ export default function MainPage() {
         </div>
       </form>
       <section>
-        <p>{error}</p>
+        <p className="error">{error}</p>
       </section>
     </div>
   );

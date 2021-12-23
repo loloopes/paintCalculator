@@ -11,9 +11,6 @@ export default async function postData(info, setCans, setError) {
 
     const { data: { error } } = result;
     if (error) setError(error.message);
-
-    // const { data } = result;
-    // if (data) setCans(data);
   } catch (err) {
     console.log(err);
   }

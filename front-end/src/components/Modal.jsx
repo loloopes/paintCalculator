@@ -32,6 +32,11 @@ export default function Modal() {
                 Cada janela possui as medidas: 2,00 x 1,20 mtos
                 Cada porta possui as medidas: 0,80 x 1,90
               </li>
+              <li>
+                O indice do erro + 1 equivale ao numero da parede com problemas em questao.
+                Exemplo : [5].wallHeight must be greater than or equal to 2.2, significa que
+                a parede de numero 6 deve ter altura maior ou igual a 2.2m
+              </li>
             </ol>
           </div>
         </div>

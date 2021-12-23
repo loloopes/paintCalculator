@@ -28,3 +28,7 @@
   place-content: space-evenly;
   flex-flow: wrap;
 }
+
+.error {
+  text-align: center;
+}

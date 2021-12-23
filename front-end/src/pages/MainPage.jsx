@@ -27,28 +27,7 @@ export default function MainPage() {
     <div>
       <div className="wallsCansTables">
         <WallsTable walls={walls} />
-
-        {/* Table results starts */}
-        {/* <section>
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Latas de 18</th>
-                <th scope="col">Latas de 3.6</th>
-                <th scope="col">Latas de 2.5</th>
-                <th scope="col">Latas de 0.5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {Object.values(cans).map((value) => <td>{value}</td>)}
-              </tr>
-
-            </tbody>
-          </table>
-        </section> */}
         <ResultTable cans={cans} />
-        {/* Table ends */}
       </div>
 
       <form className="form">
@@ -76,7 +55,7 @@ export default function MainPage() {
         </div>
       </form>
       <section>
-        {console.log('log cans error', error)}
+        <p>{error}</p>
       </section>
     </div>
   );

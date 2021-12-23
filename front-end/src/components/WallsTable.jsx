@@ -9,10 +9,10 @@ export default function WallsTable({ walls }) {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">wallHeight</th>
-            <th scope="col">wallLength</th>
-            <th scope="col">doors</th>
-            <th scope="col">windows</th>
+            <th scope="col">Altura da parede</th>
+            <th scope="col">Largura da parede</th>
+            <th scope="col">Portas</th>
+            <th scope="col">Janelas</th>
           </tr>
         </thead>
         <tbody>

@@ -8,10 +8,10 @@ export default function ResultsTable({ cans }) {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Latas de 18</th>
-            <th scope="col">Latas de 3.6</th>
-            <th scope="col">Latas de 2.5</th>
-            <th scope="col">Latas de 0.5</th>
+            <th scope="col">Latas de 18L</th>
+            <th scope="col">Latas de 3.6L</th>
+            <th scope="col">Latas de 2.5L</th>
+            <th scope="col">Latas de 0.5L</th>
           </tr>
         </thead>
         <tbody>

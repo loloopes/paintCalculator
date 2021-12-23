@@ -1,11 +1,13 @@
 import axios from 'axios';
 
-export default async function postData(walls, setCans, setError) {
+export default async function postData(info, setCans, setError) {
   try {
     setError('');
-    const result = await axios.post('http://localhost:3001/area', walls);
+    const result = await axios.post('http://localhost:3001/area', info);
 
-    const { data } = result;
+    console.log(result.data);
+
+    const { data: { data } } = result;
     if (data) setCans(data);
 
     const { data: { error: { message } } } = result;

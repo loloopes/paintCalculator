@@ -4,15 +4,16 @@ export default async function postData(info, setCans, setError) {
   try {
     setError('');
     const result = await axios.post('http://localhost:3001/area', info);
+    console.log(result);
 
-    console.log(result.data);
+    const { data: { payload } } = result;
+    if (payload) setCans(payload);
 
-    const { data: { data } } = result;
-    if (data) setCans(data);
+    const { data: { error } } = result;
+    if (error) setError(error.message);
 
-    const { data: { error: { message } } } = result;
-
-    if (message) setError(message);
+    // const { data } = result;
+    // if (data) setCans(data);
   } catch (err) {
     console.log(err);
   }

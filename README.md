@@ -9,6 +9,34 @@ O FrontEnd, que vai rodar em `http://localhost:3000/`, consiste de duas tabelas 
 O FrontEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/CodeChallange/-/tree/master/front-end).
 O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/CodeChallange/-/tree/master/back-end).
 
+ ```bash
+-back-end   Diretorio BackEnd         
+  --controller  Diretorio Controller, onde as requisicoes sao recebidas e processadas pelos arquivos em service
+    ---wall   Diretorio onde contem as rotas referentes as paredes, no caso post
+      ----post.js 
+      ----router.js
+    ---router.js
+  --middleware    Diretorio onde contem os middlewares que lidam com erro e verifica os dados que chegam do frontend
+    ---error.js
+    ---wallChecker.js
+  --server    Diretorio onde contem o arquivo index, onde esta o servidor
+    ---index.js
+  --service   Diretorio que comunica com o Controller, e onde todo o processamento de dados ocorre
+    ---calcCans.js
+-front-end    Diretorio FrontEnd
+  --public    Diretorio onde contem o arquivo index html da aplicacao react
+    ---index.html
+  --src   Diretorio source do react App
+    ---components   Diretorio que contem os componentes da aplicacao
+    ---images   Diretorio que contem imagens do projeto
+    ---pages    Diretorio que contem as paginas da aplicacao
+      ---MainPage.jsx 
+    ---services   Diretorio onde as informacoes sao agrupadas e enviada ao backend
+      ----postData.js
+    ---App.js
+    ---index.js
+ ```
+
 ## Requerimentos
 
 - npm ^8.1.0
@@ -20,7 +48,7 @@ O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/C
 
 Comece clonando o repositorio
 ```bash
-git clone git@gitlab.com:loloopes/CodeChallange.git
+git clone git@gitlab.com:loloopes/codechallenge.git
 cd CodeChallange
 ```
 Apos clonar o repositorio, certifique-se de que pelo menos o npm e o node estejam instalados. A aplicacao pode rodar sem o docker.

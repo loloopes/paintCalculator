@@ -5,8 +5,8 @@ services:
     depends_on: 
       - "back"
     ports:
-      - "${FRONT_PORT}":3000
+      - "${FRONT_PORT}:3000"
   back:
     build: ./back-end
     ports:
-      - "${BACK_PORT}":3001
+      - "${BACK_PORT}:3001"

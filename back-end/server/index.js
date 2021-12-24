@@ -6,7 +6,7 @@ const root = require('../controller/router');
 require('dotenv').config({ path: require('find-config')('.env') });
 
 const app = express();
-const PORT = process.env.BACK_PORT;
+const PORT = process.env.BACK_PORT || 3001;
 
 app.use(express.json());
 app.use(cors());

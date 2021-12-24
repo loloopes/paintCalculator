@@ -11,7 +11,7 @@ O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/C
 
  ```bash
 -back-end   Diretorio BackEnd         
-  --controller  Diretorio Controller, onde as requisicoes sao recebidas e processadas pelos arquivos em service
+  --controller  Diretorio Controller, onde as requisicoes sao recebidas e passadas ao diretorio service onde serao processadas 
     ---wall   Diretorio onde contem as rotas referentes as paredes, no caso post
       ----post.js 
       ----router.js
@@ -41,8 +41,8 @@ O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/C
 
 - npm ^8.1.0
 - node ^16.13.0
-- docker ^20.10.7 (opicional)
-- docker-compose ^1.25.5 (opicional)
+- docker ^20.10.7 (opcional)
+- docker-compose ^1.25.5 (opcional)
 
 ## Instalacao
 

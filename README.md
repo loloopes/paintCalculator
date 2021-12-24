@@ -6,8 +6,8 @@ O BackEnd possui apenas um endpoint, `POST em http://localhost:3001/area` que re
 
 O FrontEnd, que vai rodar em `http://localhost:3000/`, consiste de duas tabelas e um form onde sao preenchidas as informacoes da paredes mostradas na tabela de paredes, que sao salvas no estado da aplicacao. Ao clicar em calcular, o estado com as informacoes da parede sao passados para o BackEnd que verifica os dados e faz o calculo necessario, retornando a melhor compra possivel que e registrado na tabela de resultados.
 
-O FrontEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/CodeChallange/-/tree/master/front-end).
-O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/CodeChallange/-/tree/master/back-end).
+O FrontEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/codechallenge/-/tree/master/front-end).
+O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/codechallenge/-/tree/master/back-end).
 
  ```bash
 -back-end   Diretorio BackEnd         
@@ -49,7 +49,7 @@ O BackEnd da aplicacao pode ser achado aqui [here](https://gitlab.com/loloopes/C
 Comece clonando o repositorio
 ```bash
 git clone git@gitlab.com:loloopes/codechallenge.git
-cd CodeChallange
+cd codechallenge
 ```
 Apos clonar o repositorio, certifique-se de que pelo menos o npm e o node estejam instalados. A aplicacao pode rodar sem o docker.
 
@@ -76,7 +76,7 @@ Voce pode achar mais sobre como instalar o Docker-Compose aqui [here](https://do
 Rode o comando:
 
 ```bash
-cd CodeChallange
+cd codechallenge
 docker-compose up
 ```
 Apos entrar com docker-compose up a aplicacao vai estar no ar e pronta para uso em `http://localhost:3000/`.
@@ -86,7 +86,7 @@ Apos entrar com docker-compose up a aplicacao vai estar no ar e pronta para uso 
 Instale as dependencias tanto no diretorio front-end quanto back-end, para isso entre os seguintes comandos:
 
 ```bash
-cd CodeChallange
+cd codechallenge
 cd back-end
 npm install
 cd ..

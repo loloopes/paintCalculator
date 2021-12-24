@@ -5,6 +5,7 @@ import React from 'react';
 export default function ResultsTable({ cans }) {
   return (
     <section>
+      <h3>Melhor Compra</h3>
       <table className="table">
         <thead>
           <tr>

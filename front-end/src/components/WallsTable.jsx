@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 export default function WallsTable({ walls }) {
   return (
     <section>
+      <h3>Resumo paredes</h3>
       <table className="table">
         <thead>
           <tr>

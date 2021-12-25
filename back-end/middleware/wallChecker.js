@@ -22,7 +22,7 @@ module.exports = async (req, _res, next) => {
   }));
 
   const dataSchema = Joi.array().items(Joi.object({
-    numberWallHeight: Joi.alternatives().conditional('numberDoors', { is: 0, then: Joi.number().min(0.0000001).required().messages({ 'number.empty': 'o campo altura da parede nao pode ser vazio', 'number.min': 'o campo altura da parede deve ser maior que 0' }), otherwise: Joi.number().min(2.2).required().messages({ 'number.empty': 'Altura da parede nao pode ser um campo vazio', 'number.min': 'Quando ha portas, paredes devem ser no minimo 2.2m' }) }),
+    numberWallHeight: Joi.alternatives().conditional('numberDoors', { is: 0, then: Joi.number().min(0.0000001).required().messages({ 'number.empty': 'o campo altura da parede nao pode ser vazio', 'number.min': 'o campo altura da parede deve ser maior que 0' }), otherwise: Joi.number().min(2.2).required().messages({ 'number.empty': 'Altura da parede nao pode ser um campo vazio', 'number.min': 'Quando ha portas, paredes devem ter no minimo 2.2m de altura' }) }),
     numberWallLength: Joi.number().min(0.0000001).required().messages({ 'number.min': 'largura deve ser maior que 0', 'number.base': 'largura deve ser um numero' }),
     numberDoors: Joi.number().min(0).required().messages({ 'number.min': 'portas deve ser um numero, mesmo que 0', 'number.empty': 'Campo portas nao pode ser vazio' }),
     numberWindows: Joi.number().min(0).required().messages({ 'number.min': 'janelas deve ser um numero, mesmo que 0', 'number.base': 'Janelas deve ser um numero, mesmo que 0' }),

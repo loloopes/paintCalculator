@@ -16,7 +16,7 @@ const calcCans = (data) => {
   const medium = parseInt(area / (2.5 * 5), 10);
   if (medium) area -= medium * (2.5 * 5);
 
-  const small = area % 0.5 > 0 ? parseInt(area / (0.5 * 5), 10) + 1 : area / (0.5 * 5);
+  const small = area % (0.5 * 5) > 0 ? parseInt(area / (0.5 * 5), 10) + 1 : area / (0.5 * 5);
 
   const cans = {
     xLarge,

@@ -13,8 +13,8 @@ module.exports = async (req, _res, next) => {
   }));
 
   const dataSchema = Joi.array().items(Joi.object({
-    wallHeight: Joi.alternatives().conditional('doors', { not: 0, then: Joi.number().min(2.2).required(), otherwise: Joi.number().required() }),
-    wallLength: Joi.number().min(0).required().messages({ 'number.min': 'parede deve ser maior que 0' }),
+    wallHeight: Joi.alternatives().conditional('doors', { not: 0, then: Joi.number().min(2.2).required(), otherwise: Joi.number().min(0.00000000000001).required().messages({ 'number.base': 'Altura da parede deve ser um numero', 'number.min': 'Altura da parede deve ser maior que 0' }) }),
+    wallLength: Joi.number().min(0).required().messages({ 'number.min': 'largura deve ser maior que 0', 'number.base': 'largura deve ser um numero' }),
     doors: Joi.number().min(0).required().messages({ 'number.base': 'portas deve ser um numero, mesmo que 0' }),
     windows: Joi.number().min(0).required().messages({ 'number.min': 'area da parede deve ser maior que 0', 'number.base': 'Janelas deve ser um numero, mesmo que 0' }),
 

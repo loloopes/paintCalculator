@@ -13,18 +13,19 @@ module.exports = async (req, _res, next) => {
   }));
 
   const dataSchema = Joi.array().items(Joi.object({
-    wallHeight: Joi.alternatives().conditional('doors', { not: 0, then: Joi.number().min(2.2).required(), otherwise: Joi.number().min(0).required() }),
-    wallLength: Joi.number().min(0).required(),
-    doors: Joi.number().min(0).required(),
-    windows: Joi.number().min(0).required(),
+    wallHeight: Joi.alternatives().conditional('doors', { not: 0, then: Joi.number().min(2.2).required().messages({ 'number.min': 'test', 'number.base': 'altura da parede deve ser um numero' }), otherwise: Joi.number().min(0).required().messages({ 'number.min': 'altura da parede deve ser maior que 0' }) }),
+    wallLength: Joi.number().min(0).required().messages({ 'number.min': 'parede deve ser maior que 0' }),
+    doors: Joi.number().min(0).required().messages({ 'number.base': 'portas deve ser um numero, mesmo que 0' }),
+    windows: Joi.number().min(0).required().messages({ 'number.min': 'area da parede deve ser maior que 0', 'number.base': 'Janelas deve ser um numero, mesmo que 0' }),
 
   }));
 
   const wallsSchema = Joi.array().items(Joi.object({
-    wallArea: Joi.number().min(1).max(15).required(),
+    wallArea: Joi.number().min(1).max(15).required()
+      .messages({ 'number.min': 'area da parede deve ser maior que 0' }),
     doorsWindowsArea: Joi.number().max(Joi.ref('wallArea', {
       adjust: (value) => value * 0.5,
-    })).required(),
+    })).required().messages({ 'number.max': 'area de portas e janelas somadas devem corresponder a no maximo 50% da area de parede' }),
   }));
 
   const dataCheck = dataSchema.validate(data);

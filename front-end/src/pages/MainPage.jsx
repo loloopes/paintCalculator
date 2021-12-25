@@ -9,8 +9,8 @@ import WallsTable from '../components/WallsTable';
 import ResultTable from '../components/ResultsTable';
 
 export default function MainPage() {
-  const [wallHeight, setWallHeight] = useState();
-  const [wallLength, setWallLength] = useState();
+  const [wallHeight, setWallHeight] = useState(0);
+  const [wallLength, setWallLength] = useState(0);
   const [doors, setDoors] = useState(0);
   const [windows, setWindows] = useState(0);
 

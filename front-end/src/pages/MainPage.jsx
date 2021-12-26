@@ -65,7 +65,6 @@ export default function MainPage() {
             }}
           >
             Reset
-
           </button>
         </div>
       </form>

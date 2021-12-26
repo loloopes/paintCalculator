@@ -1,11 +1,11 @@
-/* eslint-disable max-len */
 // const calcArea = require('./calcArea');
 
 const calcCans = (data) => {
   const doorArea = 2 * 1.2;
   const windowArea = 0.8 * 1.9;
 
-  let area = data.reduce((acc, cV) => acc + (cV.wallHeight * cV.wallLength - doorArea * cV.doors - windowArea * cV.windows), 0);
+  let area = data.reduce((acc, cV) => acc + (cV.wallHeight * cV.wallLength
+    - doorArea * cV.doors - windowArea * cV.windows), 0);
 
   const xLarge = parseInt(area / (18 * 5), 10);
   if (xLarge) area -= xLarge * (18 * 5);

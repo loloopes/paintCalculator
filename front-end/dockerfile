@@ -1,7 +1,6 @@
 FROM node:14-alpine as frontEndLatas
 WORKDIR /front-end
-ADD ./node_modules.tar.xz ./
+# ADD ./node_modules.tar.xz ./
 COPY . .
 EXPOSE 3000
-CMD ["npm", "install"]
-ENTRYPOINT ["npm", "start"] 
+ENTRYPOINT ["sh", "entrypoint.sh"] 

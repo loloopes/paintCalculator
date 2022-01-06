@@ -1,7 +1,7 @@
 FROM node:14-alpine as backEndLatas
 WORKDIR /back-end
-ADD ./node_modules.tar.xz ./
+# ADD ./node_modules.tar.xz ./
 COPY . .
 EXPOSE 3001
-CMD ["npm", "install"]
+RUN npm install
 ENTRYPOINT ["npm", "start"] 
